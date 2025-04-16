@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VancouverFilmDept.com - About Us</title>
+    <style>
+        body {
+            background-color: #000000;
+            background-image: url("data:image/gif;base64,R0lGODlhZABkAIQAAAAAAP///4iIiICAgHBwcGBgYE9PT0BAQDAwMCAgIBAQEP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAwALAAAAABkAGQAAAX/ICSOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/wADChxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTCaRcybJlypQ4Ypp8SbOlzJo2Z+LM+dLmzp5AfcLcCVQnUaFIiyqJ2dRk0qVPm+IsuDTqUqpSr0KVinUrVK1au3Y1BTYryLBf//or2XTsyrQj08JlCzefW7b33ML9abev37aAVwHuK9atYcKD8+ZFbPgw47uLGWMG7BbvSrlzNwOOzPmy5c2FOXv2/Pl0NNCjTXe+phkUAAA7");
+            color: white;
+            font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .outer-container {
+            width: 760px;
+            margin: 0 auto;
+            border: 10px ridge #FF00FF;
+            background-color: #000033;
+            box-shadow: 0 0 30px #00FFFF;
+        }
+        
+        .container {
+            width: 740px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 2px solid #00FFFF;
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAABERqv///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px double #00FFFF;
+            padding-bottom: 10px;
+        }
+        
+        h1 {
+            color: #FF9900;
+            text-shadow: 2px 2px #FF0000, 4px 4px #000000;
+            font-size: 48px;
+            margin: 0;
+            font-family: "Impact", fantasy;
+            letter-spacing: 2px;
+            animation: textShadowPulse 2s infinite;
+        }
+        
+        h2 {
+            background: url("data:image/gif;base64,R0lGODlhAwADAIAAAP8AAP///yH5BAAAAAAALAAAAAADAAMAAAIDhH8FADs=") repeat;
+            color: #FFFFFF;
+            padding: 5px;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px outset #FF9900;
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-transform: uppercase;
+        }
+        
+        h3 {
+            color: #00FFFF;
+            text-decoration: underline;
+            margin-top: 20px;
+            font-family: "Courier New", Courier, monospace;
+            text-transform: uppercase;
+        }
+        
+        .marquee {
+            background-color: #000000;
+            color: #00FF00;
+            white-space: nowrap;
+            overflow: hidden;
+            padding: 5px;
+            margin: 20px 0;
+            border: 2px inset #00FF00;
+        }
+        
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        .counter {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            background-color: #000000;
+            padding: 5px;
+            border: 2px inset #FFFFFF;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .counter img {
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+        
+        .nav {
+            display: table;
+            width: 100%;
+            background: url("data:image/gif;base64,R0lGODlhCgAKAIAAAJmZzP///yH5BAAAAAAALAAAAAAKAAoAAAIQhI+py+0Po5y02ouzPqv7AQA7") repeat;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .nav-item {
+            display: table-cell;
+            text-align: center;
+            padding: 8px 0;
+            border: 2px outset #FF9900;
+        }
+        
+        .nav a {
+            color: #FFFFFF;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-family: "Arial Black", Gadget, sans-serif;
+            display: block;
+        }
+        
+        .nav a:hover {
+            color: #FF9900;
+            transform: scale(1.1);
+            text-shadow: 0 0 5px #FFFFFF;
+        }
+        
+        .gif-divider {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            border-top: 3px double #00FFFF;
+            padding-top: 10px;
+            color: #CCCCCC;
+        }
+        
+        .webring {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            background-color: #000033;
+            padding: 10px;
+            border: 2px inset #00FFFF;
+        }
+        
+        .webring a {
+            margin: 0 10px;
+            font-weight: bold;
+            color: #00FFFF;
+            text-decoration: none;
+        }
+        
+        .webring a:hover {
+            color: #FF00FF;
+            text-decoration: underline;
+        }
+        
+        .button-effect {
+            display: inline-block;
+            color: #FFFFFF;
+            background: url("data:image/gif;base64,R0lGODlhAwADAIAAAP/MAP///yH5BAAAAAAALAAAAAADAAMAAAIDhH8FADs=") repeat;
+            border: 2px outset #FF9900;
+            padding: 5px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .button-effect:hover {
+            background-color: #FF9900;
+            color: #000033;
+        }
+        
+        .awards {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .awards img {
+            margin: 0 5px;
+            border: 1px solid #FFFFFF;
+        }
+        
+        .flames {
+            background: url("data:image/gif;base64,R0lGODlhCAAIAIABAP8AAP///yH5BAEAAAEALAAAAAAIAAgAAAINjI8Aq5vhJINH0SdnAQA7") repeat-x top;
+            height: 20px;
+            margin: 15px 0;
+        }
+        
+        .splash-warn {
+            text-align: center;
+            margin: 10px 0;
+            padding: 5px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: 2px solid #FFFF00;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        .about-section {
+            margin-bottom: 30px;
+        }
+        
+        .mission-box {
+            border: 5px double #FF9900;
+            padding: 20px;
+            margin: 20px 0;
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAAP/MAP///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1em;
+            color: #FFFFFF;
+        }
+        
+        .team-member {
+            display: table;
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            border: 3px ridge #00FFFF;
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+        }
+        
+        .team-photo {
+            display: table-cell;
+            width: 120px;
+            vertical-align: top;
+        }
+        
+        .team-photo img {
+            border: 2px solid #FFFFFF;
+        }
+        
+        .team-info {
+            display: table-cell;
+            padding-left: 15px;
+            vertical-align: top;
+            text-align: left;
+        }
+        
+        .team-info h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-align: left;
+            color: #FF9900;
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-decoration: none;
+        }
+        
+        .team-info .role {
+            color: #00FFFF;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .team-info p {
+            color: #FFFFFF;
+            margin: 5px 0;
+        }
+        
+        .contact-form {
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAAP8AAP///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+            padding: 15px;
+            margin: 20px 0;
+            border: 3px outset #FF9900;
+        }
+        
+        .contact-form h3 {
+            margin-top: 0;
+            text-align: center;
+            color: #FFFF00;
+            text-shadow: 1px 1px #000000;
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-decoration: none;
+        }
+        
+        .contact-form table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #FFFFFF;
+        }
+        
+        .contact-form td {
+            padding: 5px;
+        }
+        
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 95%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 2px inset #00FFFF;
+            background-color: #000033;
+            color: #FFFFFF;
+            font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+        
+        .contact-form input[type="button"] {
+            background-color: #FF9900;
+            color: #000033;
+            padding: 5px 15px;
+            border: 2px outset #FF9900;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: "Arial Black", Gadget, sans-serif;
+        }
+        
+        .contact-info {
+            margin: 20px 0;
+            padding: 15px;
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+            border: 3px ridge #00FFFF;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+            color: #FFFFFF;
+        }
+        
+        .contact-info strong {
+            color: #00FFFF;
+        }
+        
+        .timeline {
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #FF00FF;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-event {
+            width: 45%;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-event:nth-child(odd) {
+            margin-left: auto;
+        }
+        
+        .timeline-event-content {
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+            padding: 15px;
+            border: 2px solid #FF00FF;
+            position: relative;
+        }
+        
+        .timeline-event:nth-child(odd) .timeline-event-content:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #FF00FF;
+        }
+        
+        .timeline-event:nth-child(even) .timeline-event-content:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid #FF00FF;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #FF9900;
+            margin-bottom: 5px;
+            font-family: "Arial Black", Gadget, sans-serif;
+        }
+        
+        .timeline-event-content p {
+            color: #FFFFFF;
+            margin: 5px 0;
+        }
+        
+        .faq-section {
+            margin: 30px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px groove #00FFFF;
+            text-align: left;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #FF9900;
+            margin-bottom: 5px;
+            font-family: "Arial Black", Gadget, sans-serif;
+        }
+        
+        .faq-answer {
+            padding-left: 20px;
+            color: #FFFFFF;
+        }
+        
+        .testimonials {
+            margin: 30px 0;
+        }
+        
+        .testimonial {
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAAP8AAP///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #00FFFF;
+            text-align: left;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+            color: #FF9900;
+        }
+        
+        .guestbook {
+            border: 3px ridge #00FFFF;
+            padding: 15px;
+            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+            margin-top: 20px;
+        }
+        
+        .guestbook h3 {
+            margin-top: 0;
+            text-align: center;
+            color: #FFFF00;
+            text-shadow: 1px 1px #000000;
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-decoration: none;
+        }
+        
+        .guestbook form {
+            color: #FFFFFF;
+        }
+        
+        .guestbook input[type="text"],
+        .guestbook textarea {
+            width: 95%;
+            background-color: #000033;
+            border: 2px inset #00FFFF;
+            color: #FFFFFF;
+            padding: 5px;
+        }
+        
+        .guestbook input[type="button"] {
+            background-color: #FF9900;
+            color: #000033;
+            padding: 5px 15px;
+            border: 2px outset #FF9900;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: "Arial Black", Gadget, sans-serif;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes textShadowPulse {
+            0% { text-shadow: 2px 2px #FF0000, 4px 4px #000000; }
+            50% { text-shadow: 2px 2px #FFFF00, 4px 4px #000000; }
+            100% { text-shadow: 2px 2px #FF0000, 4px 4px #000000; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="outer-container">
+        <div class="container">
+            <header>
+                <h1>V A N C O U V E R - F I L M - D E P T</h1>
+                <p class="blink" style="color: #FF00FF; font-size: 24px; font-weight: bold;">***Your #1 Resource for the Vancouver Film Industry!***</p>
+                <img src="/api/placeholder/650/120" alt="Vancouver Skyline Banner" style="border: 5px outset #00FFFF; margin-top: 10px;" />
+            </header>
+            
+            <div class="splash-warn">
+                BEST VIEWED IN INTERNET EXPLORER 6.0 OR HIGHER AT 1024x768 RESOLUTION
+            </div>
+            
+            <div class="nav">
+                <div class="nav-item"><a href="index.html">☆ HOME ☆</a></div>
+                <div class="nav-item"><a href="vendors.html">☆ VENDORS ☆</a></div>
+                <div class="nav-item"><a href="tips.html">☆ TIPS ☆</a></div>
+                <div class="nav-item"><a href="forum.html">☆ FORUM ☆</a></div>
+                <div class="nav-item"><a href="resources.html">☆ RESOURCES ☆</a></div>
+                <div class="nav-item"><a href="about.html">☆ ABOUT ☆</a></div>
+            </div>
+            
+            <div class="marquee">
+                <span>☆★☆ ABOUT VANCOUVERFILMDEPT.COM! ☆★☆ MEET OUR TEAM! ☆★☆ LEARN OUR STORY! ☆★☆ CONTACT US! ☆★☆ SIGN OUR GUESTBOOK! ☆★☆ JOIN OUR COMMUNITY! ☆★☆</span>
+            </div>
+            
+            <h2>:: ABOUT VANCOUVERFILMDEPT.COM ::</h2>
+            <div class="flames"></div>
+            <p style="color: #00FFFF; font-size: 16px;">Welcome to VancouverFilmDept.com - your all-in-one resource hub for the Vancouver film industry! Learn about our mission, our team, and how we're supporting "Hollywood North."</p>
+            
+            <div class="mission-box">
+                <p style="font-size: 18px; color: #FFFF00; text-shadow: 1px 1px #000000;">"Our mission is to strengthen Vancouver's film community by providing accessible resources, fostering connections, and supporting the growth of our local industry through shared knowledge and collaboration."</p>
+            </div>
+            
+            <div class="about-section">
+                <h2>:: OUR STORY ::</h2>
+                <div class="flames"></div>
+                <p style="color: #FFFFFF; text-align: left;">VancouverFilmDept.com was created in 2025 by a group of passionate Vancouver film industry professionals who saw the need for a central hub of information and resources. Drawing inspiration from the collaborative spirit of early internet communities, we built this site to help both newcomers and veterans navigate our city's thriving film scene.</p>
+                
+                <p style="color: #FFFFFF; text-align: left;">Our goal is to break down information silos and make industry knowledge accessible to everyone, regardless of their experience level or connections. By bringing together vendor information, practical tips, discussion forums, and educational resources, we hope to strengthen Vancouver's position as a world-class film production center.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-event">
+                        <div class="timeline-event-content">
+                            <div class="timeline-date">January 2025</div>
+                            <p>Initial concept development and industry needs assessment</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="timeline-event-content">
+                            <div class="timeline-date">February 2025</div>
+                            <p>First team meeting and website planning begins</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="timeline-event-content">
+                            <div class="timeline-date">March 2025</div>
+                            <p>Resource collection and vendor partnership outreach</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-event">
+                        <div class="timeline-event-content">
+                            <div class="timeline-date">April 2025</div>
+                            <p>VancouverFilmDept.com launches to the public!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>:: MEET THE TEAM ::</h2>
+                <div class="flames"></div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/120/150" alt="Sarah Chen Photo" />
+                    </div>
+                    <div class="team-info">
+                        <h3>Sarah Chen</h3>
+                        <div class="role">Founder & Location Manager</div>
+                        <p>Sarah has worked as a location manager in Vancouver for over 12 years, with credits on major studio productions and independent films. Her extensive knowledge of the local industry and passion for mentorship inspired the creation of VancouverFilmDept.com.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/120/150" alt="Michael Thompson Photo" />
+                    </div>
+                    <div class="team-info">
+                        <h3>Michael Thompson</h3>
+                        <div class="role">Co-Founder & Gaffer</div>
+                        <p>Michael brings 15 years of lighting department experience to the team. His connections with equipment vendors and rental houses have been instrumental in creating our comprehensive vendor directory.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/120/150" alt="Anika Patel Photo" />
+                    </div>
+                    <div class="team-info">
+                        <h3>Anika Patel</h3>
+                        <div class="role">Production Resources Coordinator</div>
+                        <p>With a background in production coordination and film commission work, Anika manages our resources section and maintains relationships with educational institutions and local organizations.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/120/150" alt="Jason Kim Photo" />
+                    </div>
+                    <div class="team-info">
+                        <h3>Jason Kim</h3>
+                        <div class="role">Forum Moderator & Camera Assistant</div>
+                        <p>Jason works as a 1st AC on commercials and feature films while managing our community forum. His technical expertise helps keep discussions informative and productive.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="/api/placeholder/468/60" alt="Team Banner" style="border: 2px solid #00FFFF;" />
+            </div>
+            
+            <div class="about-section">
+                <h2>:: FREQUENTLY ASKED QUESTIONS ::</h2>
+                <div class="flames"></div>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">How do I get my business listed in the vendor directory?</div>
+                        <div class="faq-answer">
+                            <p>Contact us at listings@vancouverfilmdept.com with your business information, services offered, and contact details. We review all submissions and update our directory monthly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Is membership required to use the forum?</div>
+                        <div class="faq-answer">
+                            <p>Yes, basic registration is required to post in the forum to maintain quality discussions. Registration is free and only requires a valid email address.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How can I contribute tips or resources to the site?</div>
+                        <div class="faq-answer">
+                            <p>We welcome community contributions! Email us at content@vancouverfilmdept.com with your submission. We're particularly interested in practical tips, production templates, and location insights.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Do you offer advertising opportunities?</div>
+                        <div class="faq-answer">
+                            <p>We have limited featured vendor spots available. Please contact advertising@vancouverfilmdept.com for rates and availability. We prioritize local businesses directly related to the film industry.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How often is the site updated?</div>
+                        <div class="faq-answer">
+                            <p>We add new resources weekly, update vendor information monthly, and moderate the forum daily. Our events calendar is updated as new industry events are announced.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>:: TESTIMONIALS ::</h2>
+                <div class="flames"></div>
+                
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <div class="testimonial-text">"VancouverFilmDept.com has become my go-to resource for finding equipment vendors and location information. The tips section saved me during a rainy outdoor shoot last month!"</div>
+                        <div class="testimonial-author">- David L., Independent Director</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-text">"As someone new to Vancouver's film industry, this site has been invaluable. The forum connected me with experienced professionals who've helped mentor my career."</div>
+                        <div class="testimonial-author">- Maria S., Production Assistant</div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-text">"The vendor directory saved our production when we needed a last-minute specialty equipment rental. We found exactly what we needed in minutes."</div>
+                        <div class="testimonial-author">- Robert T., Production Manager</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>:: CONTACT US ::</h2>
+                <div class="flames"></div>
+                
+                <div class="contact-info">
+                    <p><strong>General Inquiries:</strong> <span class="blink" style="color: #FF00FF;">info@vancouverfilmdept.com</span></p>
+                    <p><strong>Vendor Listings:</strong> <span class="blink" style="color: #FF00FF;">listings@vancouverfilmdept.com</span></p>
+                    <p><strong>Content Submissions:</strong> <span class="blink" style="color: #FF00FF;">content@vancouverfilmdept.com</span></p>
+                    <p><strong>Technical Support:</strong> <span class="blink" style="color: #FF00FF;">support@vancouverfilmdept.com</span></p>
+                    <p><strong>Advertising:</strong> <span class="blink" style="color: #FF00FF;">advertising@vancouverfilmdept.com</span></p>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>:: SEND US A MESSAGE ::</h3>
+                    <table cellspacing="2" cellpadding="2" border="0">
+                        <tr>
+                            <td width="20%" align="right"><b>Your Name:</b></td>
+                            <td width="80%"><input type="text" name="name" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><b>Email:</b></td>
+                            <td><input type="email" name="email" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><b>Subject:</b></td>
+                            <td><input type="text" name="subject" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" valign="top"><b>Message:</b></td>
+                            <td><textarea name="message" rows="8" cols="40"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" value="SEND MESSAGE">
+                                <span style="color: #FF00FF; font-style: italic; margin-left: 10px;">(Contact form functionality coming soon!)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="guestbook">
+                <h3>:: SIGN OUR GUESTBOOK! ::</h3>
+                <form>
+                    <p>Name: <input type="text" name="name" size="20"></p>
+                    <p>Email: <input type="text" name="email" size="20"></p>
+                    <p>Website: <input type="text" name="website" size="20"></p>
+                    <p>Message:<br><textarea name="message" rows="4" cols="50"></textarea></p>
+                    <div style="text-align: center; margin-top: 10px;">
+                        <input type="button" value="SIGN GUESTBOOK">
+                    </div>
+                    <p style="color: #FF00FF; font-style: italic; text-align: center; margin-top: 10px;">(Guestbook functionality coming soon!)</p>
+                </form>
+            </div>
+            
+            <div class="gif-divider">
+                <img src="/api/placeholder/500/20" alt="Divider" style="border: 1px solid #00FFFF;" />
+            </div>
+            
+            <div class="awards">
+                <a href="#"><img src="/api/placeholder/88/31" alt="Film Site of the Month" /></a>
+                <a href="#"><img src="/api/placeholder/88/31" alt="Valid HTML!" /></a>
+                <a href="#"><img src="/api/placeholder/88/31" alt="Top Resource Site" /></a>
+                <a href="#"><img src="/api/placeholder/88/31" alt="Best Film Community" /></a>
+            </div>
+            
+            <div class="webring">
+                <a href="#">&lt;&lt; PREV SITE</a> | 
+                <a href="#">VANCOUVER FILM WEBRING</a> | 
+                <a href="#">NEXT SITE &gt;&gt;</a>
+            </div>
+            
+            <div class="counter">
+                <span style="color: #FFFFFF;">You are visitor number:</span><br>
+                <img src="/api/placeholder/15/20" alt="1" />
+                <img src="/api/placeholder/15/20" alt="3" />
+                <img src="/api/placeholder/15/20" alt="3" />
+                <img src="/api/placeholder/15/20" alt="7" />
+            </div>
+            
+            <footer>
+                <p style="margin: 5px 0;">© 2025 VancouverFilmDept.com - All Rights Reserved</p>
+                <p style="margin: 5px 0;">This site best viewed with Internet Explorer 6.0 at 1024x768 resolution</p>
+                <p style="margin: 5px 0; color: #999999;">Site created with Frontpage 2003</p>
+                <p style="margin: 5px 0;">
+                    <a href="index.html" style="color: #00FFFF;">Home</a> | 
+                    <a href="#" style="color: #00FFFF;">Privacy Policy</a> | 
+                    <a href="about.html" style="color: #00FFFF;">Contact</a> | 
+                    <a href="#" style="color: #00FFFF;">Sitemap</a>
+                </p>
+                <p><img src="/api/placeholder/88/31" alt="Valid HTML!" /></p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+        
