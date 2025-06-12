@@ -3,812 +3,430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VancouverFilmDept.com - About Us</title>
+    <title>~*~ Vancouver Film Dept - Resource Hub ~*~</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=VT323&display=swap" rel="stylesheet">
     <style>
+        /* --- Core Styles --- */
         body {
-            background-color: #000000;
-            background-image: url("data:image/gif;base64,R0lGODlhZABkAIQAAAAAAP///4iIiICAgHBwcGBgYE9PT0BAQDAwMCAgIBAQEP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAwALAAAAABkAGQAAAX/ICSOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/wADChxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTCaRcybJlypQ4Ypp8SbOlzJo2Z+LM+dLmzp5AfcLcCVQnUaFIiyqJ2dRk0qVPm+IsuDTqUqpSr0KVinUrVK1au3Y1BTYryLBf//or2XTsyrQj08JlCzefW7b33ML9abev37aAVwHuK9atYcKD8+ZFbPgw47uLGWMG7BbvSrlzNwOOzPmy5c2FOXv2/Pl0NNCjTXe+phkUAAA7");
-            color: white;
-            font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+            background-color: #1a1a2e; 
+            color: #e0e0e0;
+            font-family: 'VT323', 'Courier New', monospace;
+            font-size: 20px;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            text-align: center;
         }
-        
-        .outer-container {
-            width: 760px;
-            margin: 0 auto;
-            border: 10px ridge #FF00FF;
-            background-color: #000033;
-            box-shadow: 0 0 30px #00FFFF;
+        #main-container {
+            width: 95%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid #4a4a68;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
         }
-        
-        .container {
-            width: 740px;
-            margin: 0 auto;
-            padding: 10px;
-            border: 2px solid #00FFFF;
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAABERqv///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 3px double #00FFFF;
-            padding-bottom: 10px;
-        }
-        
+
+        /* --- Header --- */
         h1 {
-            color: #FF9900;
-            text-shadow: 2px 2px #FF0000, 4px 4px #000000;
-            font-size: 48px;
-            margin: 0;
-            font-family: "Impact", fantasy;
-            letter-spacing: 2px;
-            animation: textShadowPulse 2s infinite;
+            color: #ffffff; text-align: center; font-family: 'Poppins', sans-serif;
+            font-size: 48px; text-shadow: 0 0 5px rgba(135, 206, 235, 0.5), 0 0 10px rgba(135, 206, 235, 0.5);
+            letter-spacing: 3px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase;
         }
-        
-        h2 {
-            background: url("data:image/gif;base64,R0lGODlhAwADAIAAAP8AAP///yH5BAAAAAAALAAAAAADAAMAAAIDhH8FADs=") repeat;
-            color: #FFFFFF;
-            padding: 5px;
-            text-align: center;
-            margin-top: 30px;
-            border: 2px outset #FF9900;
-            font-family: "Arial Black", Gadget, sans-serif;
-            text-transform: uppercase;
+        .ticker-wrap {
+            width: 100%; overflow: hidden; background-color: #87ceeb;
+            padding: 10px 0; box-sizing: border-box;
         }
-        
-        h3 {
-            color: #00FFFF;
-            text-decoration: underline;
-            margin-top: 20px;
-            font-family: "Courier New", Courier, monospace;
-            text-transform: uppercase;
+        .ticker {
+            display: inline-block; white-space: nowrap; padding-left: 100%;
+            box-sizing: border-box; animation: ticker-scroll 20s linear infinite;
+            color: #1a1a2e; font-weight: bold; font-size: 22px;
         }
-        
-        .marquee {
-            background-color: #000000;
-            color: #00FF00;
-            white-space: nowrap;
-            overflow: hidden;
-            padding: 5px;
-            margin: 20px 0;
-            border: 2px inset #00FF00;
+        @keyframes ticker-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
-        
-        .marquee span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 15s linear infinite;
-        }
-        
-        .blink {
-            animation: blink 1s infinite;
-        }
-        
-        .counter {
-            text-align: center;
-            margin-top: 20px;
-            font-weight: bold;
-            background-color: #000000;
-            padding: 5px;
-            border: 2px inset #FFFFFF;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .counter img {
-            vertical-align: middle;
-            margin: 0 2px;
-        }
-        
-        .nav {
-            display: table;
-            width: 100%;
-            background: url("data:image/gif;base64,R0lGODlhCgAKAIAAAJmZzP///yH5BAAAAAAALAAAAAAKAAoAAAIQhI+py+0Po5y02ouzPqv7AQA7") repeat;
-            margin-bottom: 20px;
-            border-collapse: collapse;
-            table-layout: fixed;
-        }
-        
-        .nav-item {
-            display: table-cell;
-            text-align: center;
-            padding: 8px 0;
-            border: 2px outset #FF9900;
-        }
-        
-        .nav a {
-            color: #FFFFFF;
-            font-weight: bold;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 12px;
-            font-family: "Arial Black", Gadget, sans-serif;
-            display: block;
-        }
-        
-        .nav a:hover {
-            color: #FF9900;
-            transform: scale(1.1);
-            text-shadow: 0 0 5px #FFFFFF;
-        }
-        
-        .gif-divider {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.8em;
-            border-top: 3px double #00FFFF;
-            padding-top: 10px;
-            color: #CCCCCC;
-        }
-        
-        .webring {
+
+        /* --- Main Navigation --- */
+        #main-nav {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
-            background-color: #000033;
-            padding: 10px;
-            border: 2px inset #00FFFF;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
         }
-        
-        .webring a {
-            margin: 0 10px;
-            font-weight: bold;
-            color: #00FFFF;
+        .nav-btn {
+            padding: 10px 20px;
+            border: 2px solid #9370db;
+            background-color: transparent;
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            border-radius: 5px;
             text-decoration: none;
-        }
-        
-        .webring a:hover {
-            color: #FF00FF;
-            text-decoration: underline;
-        }
-        
-        .button-effect {
             display: inline-block;
-            color: #FFFFFF;
-            background: url("data:image/gif;base64,R0lGODlhAwADAIAAAP/MAP///yH5BAAAAAAALAAAAAADAAMAAAIDhH8FADs=") repeat;
-            border: 2px outset #FF9900;
-            padding: 5px 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 12px;
-            cursor: pointer;
-            margin-top: 10px;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            background-color: #9370db;
+            color: #1a1a2e;
         }
         
-        .button-effect:hover {
-            background-color: #FF9900;
-            color: #000033;
+        /* --- Page Views --- */
+        .page-view { display: none; }
+        .page-view.active { display: block; }
+        
+        /* --- Filter Dropdown --- */
+        #filter-container {
+            display: flex; justify-content: center; align-items: center; gap: 15px;
+            margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px dashed #4a4a68;
+        }
+        #filter-container label { font-size: 22px; color: #9370db; }
+        #filter-dropdown {
+            background-color: #1a1a2e; color: #e0e0e0; border: 2px solid #9370db;
+            padding: 8px; font-family: 'VT323', monospace; font-size: 18px; border-radius: 4px;
+        }
+        #filter-dropdown:focus { outline: 2px solid #87ceeb; }
+
+        /* --- Resource Section --- */
+        .resource-section { display: block; }
+        .resource-section.hidden { display: none; }
+        h2 {
+            color: #87ceeb; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 2px; border-bottom: 3px solid #4a4a68;
+            padding-bottom: 8px; margin-top: 40px;
+        }
+        ul { list-style-type: none; padding-left: 20px; }
+        li { padding-bottom: 12px; position: relative; padding-left: 25px; }
+        li::before { content: '>>'; position: absolute; left: 0; top: 0; color: #9370db; }
+        a {
+            color: #87ceeb; text-decoration: none; font-weight: bold;
+            border-bottom: 1px dotted #87ceeb; transition: all 0.2s ease-in-out;
+        }
+        li a:hover {
+            color: #1a1a2e; background-color: #87ceeb; text-shadow: none;
+            border-bottom: 1px dotted transparent;
         }
         
-        .awards {
-            margin: 20px 0;
-            text-align: center;
+        /* --- News Section --- */
+        .news-article {
+            border-bottom: 1px solid #4a4a68; padding: 15px 5px; margin-bottom: 15px;
         }
-        
-        .awards img {
-            margin: 0 5px;
-            border: 1px solid #FFFFFF;
+        .news-article:last-child { border-bottom: none; }
+        .news-title {
+            color: #ffffff; font-size: 24px; margin: 0 0 5px 0; font-family: 'Poppins', sans-serif;
         }
-        
-        .flames {
-            background: url("data:image/gif;base64,R0lGODlhCAAIAIABAP8AAP///yH5BAEAAAEALAAAAAAIAAgAAAINjI8Aq5vhJINH0SdnAQA7") repeat-x top;
-            height: 20px;
-            margin: 15px 0;
+        .news-meta { font-size: 16px; color: #9370db; margin-bottom: 10px; }
+        .news-snippet { font-size: 18px; color: #e0e0e0; line-height: 1.5; }
+
+        /* --- Message Board Section --- */
+        #message-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        #message-form label { font-size: 18px; color: #9370db; margin-bottom: 5px; }
+        #message-form input, #message-form textarea {
+            background-color: rgba(0, 0, 0, 0.2); border: 1px solid #4a4a68;
+            color: #e0e0e0; padding: 10px; font-family: 'VT323', monospace;
+            font-size: 18px; border-radius: 4px;
         }
-        
-        .splash-warn {
-            text-align: center;
-            margin: 10px 0;
-            padding: 5px;
-            background-color: #FF0000;
-            color: #FFFFFF;
-            border: 2px solid #FFFF00;
-            font-weight: bold;
-            animation: pulse 2s infinite;
+        #message-form textarea { resize: vertical; min-height: 80px; }
+        #message-form button {
+            align-self: flex-start; padding: 10px 20px; border: 2px solid #87ceeb;
+            background-color: transparent; color: #87ceeb; font-size: 18px;
+            cursor: pointer; transition: all 0.2s ease-in-out;
         }
-        
-        .about-section {
-            margin-bottom: 30px;
+        #message-form button:hover { background-color: #87ceeb; color: #1a1a2e; }
+        #messages-container { margin-top: 30px; }
+        .message-item {
+            background-color: rgba(0, 0, 0, 0.1); border: 1px dashed #4a4a68;
+            padding: 15px; margin-bottom: 15px; border-radius: 5px;
         }
-        
-        .mission-box {
-            border: 5px double #FF9900;
-            padding: 20px;
-            margin: 20px 0;
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAAP/MAP///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
-            text-align: center;
-            font-style: italic;
-            font-size: 1.1em;
-            color: #FFFFFF;
+        .message-header { display: flex; justify-content: space-between; align-items: center; }
+        .message-name { font-weight: bold; color: #87ceeb; font-size: 22px; }
+        .message-time { font-size: 14px; color: #9370db; }
+        .message-text { margin-top: 10px; color: #e0e0e0; white-space: pre-wrap; word-wrap: break-word;}
+
+        /* --- Footer & Flair --- */
+        hr {
+            border: 0; height: 30px; background-image: url('https://web.archive.org/web/20091027181055if_/http://geocities.com/hollywood/set/7338/flamingtextbar.gif');
+            background-repeat: repeat-x; margin: 40px 0; opacity: 0.7;
         }
-        
-        .team-member {
-            display: table;
-            width: 100%;
-            margin: 20px 0;
-            padding: 15px;
-            border: 3px ridge #00FFFF;
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
+        .center-text { text-align: center; }
+        #footer {
+            margin-top: 30px; font-size: 16px; color: #a0a0a0;
+            border-top: 1px solid #4a4a68; padding-top: 20px;
         }
-        
-        .team-photo {
-            display: table-cell;
-            width: 120px;
-            vertical-align: top;
-        }
-        
-        .team-photo img {
-            border: 2px solid #FFFFFF;
-        }
-        
-        .team-info {
-            display: table-cell;
-            padding-left: 15px;
-            vertical-align: top;
-            text-align: left;
-        }
-        
-        .team-info h3 {
-            margin-top: 0;
-            margin-bottom: 5px;
-            text-align: left;
-            color: #FF9900;
-            font-family: "Arial Black", Gadget, sans-serif;
-            text-decoration: none;
-        }
-        
-        .team-info .role {
-            color: #00FFFF;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        
-        .team-info p {
-            color: #FFFFFF;
-            margin: 5px 0;
-        }
-        
-        .contact-form {
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAAP8AAP///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
-            padding: 15px;
-            margin: 20px 0;
-            border: 3px outset #FF9900;
-        }
-        
-        .contact-form h3 {
-            margin-top: 0;
-            text-align: center;
-            color: #FFFF00;
-            text-shadow: 1px 1px #000000;
-            font-family: "Arial Black", Gadget, sans-serif;
-            text-decoration: none;
-        }
-        
-        .contact-form table {
-            width: 100%;
-            border-collapse: collapse;
-            color: #FFFFFF;
-        }
-        
-        .contact-form td {
-            padding: 5px;
-        }
-        
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 95%;
-            padding: 5px;
-            margin-bottom: 10px;
-            border: 2px inset #00FFFF;
-            background-color: #000033;
-            color: #FFFFFF;
-            font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
-        }
-        
-        .contact-form textarea {
-            height: 150px;
-        }
-        
-        .contact-form input[type="button"] {
-            background-color: #FF9900;
-            color: #000033;
-            padding: 5px 15px;
-            border: 2px outset #FF9900;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: "Arial Black", Gadget, sans-serif;
-        }
-        
-        .contact-info {
-            margin: 20px 0;
-            padding: 15px;
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
-            border: 3px ridge #00FFFF;
-        }
-        
-        .contact-info p {
-            margin: 5px 0;
-            color: #FFFFFF;
-        }
-        
-        .contact-info strong {
-            color: #00FFFF;
-        }
-        
-        .timeline {
-            margin: 30px 0;
-            position: relative;
-        }
-        
-        .timeline:before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: #FF00FF;
-            margin-left: -1.5px;
-        }
-        
-        .timeline-event {
-            width: 45%;
-            position: relative;
-            margin-bottom: 30px;
-        }
-        
-        .timeline-event:nth-child(odd) {
-            margin-left: auto;
-        }
-        
-        .timeline-event-content {
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
-            padding: 15px;
-            border: 2px solid #FF00FF;
-            position: relative;
-        }
-        
-        .timeline-event:nth-child(odd) .timeline-event-content:before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: -10px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-right: 10px solid #FF00FF;
-        }
-        
-        .timeline-event:nth-child(even) .timeline-event-content:before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: -10px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 10px solid #FF00FF;
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: #FF9900;
-            margin-bottom: 5px;
-            font-family: "Arial Black", Gadget, sans-serif;
-        }
-        
-        .timeline-event-content p {
-            color: #FFFFFF;
-            margin: 5px 0;
-        }
-        
-        .faq-section {
-            margin: 30px 0;
-        }
-        
-        .faq-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px groove #00FFFF;
-            text-align: left;
-        }
-        
-        .faq-question {
-            font-weight: bold;
-            color: #FF9900;
-            margin-bottom: 5px;
-            font-family: "Arial Black", Gadget, sans-serif;
-        }
-        
-        .faq-answer {
-            padding-left: 20px;
-            color: #FFFFFF;
-        }
-        
-        .testimonials {
-            margin: 30px 0;
-        }
-        
-        .testimonial {
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAAP8AAP///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 5px solid #00FFFF;
-            text-align: left;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 10px;
-            color: #FFFFFF;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            text-align: right;
-            color: #FF9900;
-        }
-        
-        .guestbook {
-            border: 3px ridge #00FFFF;
-            padding: 15px;
-            background: url("data:image/gif;base64,R0lGODlhBAAEAIAAADMzmf///yH5BAAAAAAALAAAAAAEAAQAAAIEhI+pWAA7") repeat;
-            margin-top: 20px;
-        }
-        
-        .guestbook h3 {
-            margin-top: 0;
-            text-align: center;
-            color: #FFFF00;
-            text-shadow: 1px 1px #000000;
-            font-family: "Arial Black", Gadget, sans-serif;
-            text-decoration: none;
-        }
-        
-        .guestbook form {
-            color: #FFFFFF;
-        }
-        
-        .guestbook input[type="text"],
-        .guestbook textarea {
-            width: 95%;
-            background-color: #000033;
-            border: 2px inset #00FFFF;
-            color: #FFFFFF;
-            padding: 5px;
-        }
-        
-        .guestbook input[type="button"] {
-            background-color: #FF9900;
-            color: #000033;
-            padding: 5px 15px;
-            border: 2px outset #FF9900;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: "Arial Black", Gadget, sans-serif;
-        }
-        
-        @keyframes marquee {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
-        
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        
-        @keyframes textShadowPulse {
-            0% { text-shadow: 2px 2px #FF0000, 4px 4px #000000; }
-            50% { text-shadow: 2px 2px #FFFF00, 4px 4px #000000; }
-            100% { text-shadow: 2px 2px #FF0000, 4px 4px #000000; }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            #main-container { padding: 20px 15px; }
+            #filter-container { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <div class="outer-container">
-        <div class="container">
-            <header>
-                <h1>V A N C O U V E R - F I L M - D E P T</h1>
-                <p class="blink" style="color: #FF00FF; font-size: 24px; font-weight: bold;">***Your #1 Resource for the Vancouver Film Industry!***</p>
-                <img src="/api/placeholder/650/120" alt="Vancouver Skyline Banner" style="border: 5px outset #00FFFF; margin-top: 10px;" />
-            </header>
-            
-            <div class="splash-warn">
-                BEST VIEWED IN INTERNET EXPLORER 6.0 OR HIGHER AT 1024x768 RESOLUTION
+
+    <div id="main-container">
+        <!-- Static Header -->
+        <div class="center-text">
+            <img src="https://web.archive.org/web/20090831182211if_/http://www.geocities.com/hollywood/casting/2005/camera.gif" alt="Animated Camera" width="100">
+        </div>
+        <h1>Vancouver Film Dept</h1>
+        
+        <!-- Main Navigation -->
+        <nav id="main-nav">
+            <button class="nav-btn active" data-view="hub-view">Resource Hub</button>
+            <button class="nav-btn" data-view="news-view">News</button>
+            <a href="https://www.creativebc.com/services/provincial-film-commission/in-production/" target="_blank" class="nav-btn">In Production</a>
+            <button class="nav-btn" data-view="board-view">Message Board</button>
+        </nav>
+
+        <div class="ticker-wrap">
+            <div class="ticker">**!! YOUR GUIDE TO THE VANCOUVER FILM DEPARTMENT !!** LEAVE A MESSAGE ON THE BOARD! !!**</div>
+        </div>
+        <hr>
+
+        <!-- Dynamic Content Area -->
+        <div id="hub-view" class="page-view active">
+            <div id="filter-container">
+                <label for="filter-dropdown">Filter by Department:</label>
+                <select id="filter-dropdown"></select>
             </div>
-            
-            <div class="nav">
-                <div class="nav-item"><a href="index.html">☆ HOME ☆</a></div>
-                <div class="nav-item"><a href="vendors.html">☆ VENDORS ☆</a></div>
-                <div class="nav-item"><a href="tips.html">☆ TIPS ☆</a></div>
-                <div class="nav-item"><a href="forum.html">☆ FORUM ☆</a></div>
-                <div class="nav-item"><a href="resources.html">☆ RESOURCES ☆</a></div>
-                <div class="nav-item"><a href="about.html">☆ ABOUT ☆</a></div>
-            </div>
-            
-            <div class="marquee">
-                <span>☆★☆ ABOUT VANCOUVERFILMDEPT.COM! ☆★☆ MEET OUR TEAM! ☆★☆ LEARN OUR STORY! ☆★☆ CONTACT US! ☆★☆ SIGN OUR GUESTBOOK! ☆★☆ JOIN OUR COMMUNITY! ☆★☆</span>
-            </div>
-            
-            <h2>:: ABOUT VANCOUVERFILMDEPT.COM ::</h2>
-            <div class="flames"></div>
-            <p style="color: #00FFFF; font-size: 16px;">Welcome to VancouverFilmDept.com - your all-in-one resource hub for the Vancouver film industry! Learn about our mission, our team, and how we're supporting "Hollywood North."</p>
-            
-            <div class="mission-box">
-                <p style="font-size: 18px; color: #FFFF00; text-shadow: 1px 1px #000000;">"Our mission is to strengthen Vancouver's film community by providing accessible resources, fostering connections, and supporting the growth of our local industry through shared knowledge and collaboration."</p>
-            </div>
-            
-            <div class="about-section">
-                <h2>:: OUR STORY ::</h2>
-                <div class="flames"></div>
-                <p style="color: #FFFFFF; text-align: left;">VancouverFilmDept.com was created in 2025 by a group of passionate Vancouver film industry professionals who saw the need for a central hub of information and resources. Drawing inspiration from the collaborative spirit of early internet communities, we built this site to help both newcomers and veterans navigate our city's thriving film scene.</p>
-                
-                <p style="color: #FFFFFF; text-align: left;">Our goal is to break down information silos and make industry knowledge accessible to everyone, regardless of their experience level or connections. By bringing together vendor information, practical tips, discussion forums, and educational resources, we hope to strengthen Vancouver's position as a world-class film production center.</p>
-                
-                <div class="timeline">
-                    <div class="timeline-event">
-                        <div class="timeline-event-content">
-                            <div class="timeline-date">January 2025</div>
-                            <p>Initial concept development and industry needs assessment</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event">
-                        <div class="timeline-event-content">
-                            <div class="timeline-date">February 2025</div>
-                            <p>First team meeting and website planning begins</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event">
-                        <div class="timeline-event-content">
-                            <div class="timeline-date">March 2025</div>
-                            <p>Resource collection and vendor partnership outreach</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event">
-                        <div class="timeline-event-content">
-                            <div class="timeline-date">April 2025</div>
-                            <p>VancouverFilmDept.com launches to the public!</p>
-                        </div>
-                    </div>
+            <div id="section-container"></div>
+        </div>
+        
+        <div id="news-view" class="page-view">
+            <h2>Latest Industry News</h2>
+            <div id="news-container"></div>
+        </div>
+        
+        <div id="board-view" class="page-view">
+            <h2>Message Board</h2>
+            <p>Leave a shout-out, ask a question, or post a gig. Keep it professional!</p>
+            <form id="message-form">
+                <div class="form-group">
+                    <label for="name-input">Your Name:</label>
+                    <input type="text" id="name-input" required maxlength="50">
                 </div>
-            </div>
-            
-            <div class="about-section">
-                <h2>:: MEET THE TEAM ::</h2>
-                <div class="flames"></div>
-                
-                <div class="team-member">
-                    <div class="team-photo">
-                        <img src="/api/placeholder/120/150" alt="Sarah Chen Photo" />
-                    </div>
-                    <div class="team-info">
-                        <h3>Sarah Chen</h3>
-                        <div class="role">Founder & Location Manager</div>
-                        <p>Sarah has worked as a location manager in Vancouver for over 12 years, with credits on major studio productions and independent films. Her extensive knowledge of the local industry and passion for mentorship inspired the creation of VancouverFilmDept.com.</p>
-                    </div>
+                <div class="form-group">
+                    <label for="message-input">Your Message:</label>
+                    <textarea id="message-input" required maxlength="500"></textarea>
                 </div>
-                
-                <div class="team-member">
-                    <div class="team-photo">
-                        <img src="/api/placeholder/120/150" alt="Michael Thompson Photo" />
-                    </div>
-                    <div class="team-info">
-                        <h3>Michael Thompson</h3>
-                        <div class="role">Co-Founder & Gaffer</div>
-                        <p>Michael brings 15 years of lighting department experience to the team. His connections with equipment vendors and rental houses have been instrumental in creating our comprehensive vendor directory.</p>
-                    </div>
-                </div>
-                
-                <div class="team-member">
-                    <div class="team-photo">
-                        <img src="/api/placeholder/120/150" alt="Anika Patel Photo" />
-                    </div>
-                    <div class="team-info">
-                        <h3>Anika Patel</h3>
-                        <div class="role">Production Resources Coordinator</div>
-                        <p>With a background in production coordination and film commission work, Anika manages our resources section and maintains relationships with educational institutions and local organizations.</p>
-                    </div>
-                </div>
-                
-                <div class="team-member">
-                    <div class="team-photo">
-                        <img src="/api/placeholder/120/150" alt="Jason Kim Photo" />
-                    </div>
-                    <div class="team-info">
-                        <h3>Jason Kim</h3>
-                        <div class="role">Forum Moderator & Camera Assistant</div>
-                        <p>Jason works as a 1st AC on commercials and feature films while managing our community forum. His technical expertise helps keep discussions informative and productive.</p>
-                    </div>
-                </div>
+                <button type="submit">Post Message</button>
+            </form>
+            <div id="messages-container">
+                <p>Loading messages...</p>
             </div>
-            
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="/api/placeholder/468/60" alt="Team Banner" style="border: 2px solid #00FFFF;" />
-            </div>
-            
-            <div class="about-section">
-                <h2>:: FREQUENTLY ASKED QUESTIONS ::</h2>
-                <div class="flames"></div>
-                
-                <div class="faq-section">
-                    <div class="faq-item">
-                        <div class="faq-question">How do I get my business listed in the vendor directory?</div>
-                        <div class="faq-answer">
-                            <p>Contact us at listings@vancouverfilmdept.com with your business information, services offered, and contact details. We review all submissions and update our directory monthly.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">Is membership required to use the forum?</div>
-                        <div class="faq-answer">
-                            <p>Yes, basic registration is required to post in the forum to maintain quality discussions. Registration is free and only requires a valid email address.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">How can I contribute tips or resources to the site?</div>
-                        <div class="faq-answer">
-                            <p>We welcome community contributions! Email us at content@vancouverfilmdept.com with your submission. We're particularly interested in practical tips, production templates, and location insights.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">Do you offer advertising opportunities?</div>
-                        <div class="faq-answer">
-                            <p>We have limited featured vendor spots available. Please contact advertising@vancouverfilmdept.com for rates and availability. We prioritize local businesses directly related to the film industry.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">How often is the site updated?</div>
-                        <div class="faq-answer">
-                            <p>We add new resources weekly, update vendor information monthly, and moderate the forum daily. Our events calendar is updated as new industry events are announced.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about-section">
-                <h2>:: TESTIMONIALS ::</h2>
-                <div class="flames"></div>
-                
-                <div class="testimonials">
-                    <div class="testimonial">
-                        <div class="testimonial-text">"VancouverFilmDept.com has become my go-to resource for finding equipment vendors and location information. The tips section saved me during a rainy outdoor shoot last month!"</div>
-                        <div class="testimonial-author">- David L., Independent Director</div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-text">"As someone new to Vancouver's film industry, this site has been invaluable. The forum connected me with experienced professionals who've helped mentor my career."</div>
-                        <div class="testimonial-author">- Maria S., Production Assistant</div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-text">"The vendor directory saved our production when we needed a last-minute specialty equipment rental. We found exactly what we needed in minutes."</div>
-                        <div class="testimonial-author">- Robert T., Production Manager</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about-section">
-                <h2>:: CONTACT US ::</h2>
-                <div class="flames"></div>
-                
-                <div class="contact-info">
-                    <p><strong>General Inquiries:</strong> <span class="blink" style="color: #FF00FF;">info@vancouverfilmdept.com</span></p>
-                    <p><strong>Vendor Listings:</strong> <span class="blink" style="color: #FF00FF;">listings@vancouverfilmdept.com</span></p>
-                    <p><strong>Content Submissions:</strong> <span class="blink" style="color: #FF00FF;">content@vancouverfilmdept.com</span></p>
-                    <p><strong>Technical Support:</strong> <span class="blink" style="color: #FF00FF;">support@vancouverfilmdept.com</span></p>
-                    <p><strong>Advertising:</strong> <span class="blink" style="color: #FF00FF;">advertising@vancouverfilmdept.com</span></p>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>:: SEND US A MESSAGE ::</h3>
-                    <table cellspacing="2" cellpadding="2" border="0">
-                        <tr>
-                            <td width="20%" align="right"><b>Your Name:</b></td>
-                            <td width="80%"><input type="text" name="name" size="30"></td>
-                        </tr>
-                        <tr>
-                            <td align="right"><b>Email:</b></td>
-                            <td><input type="email" name="email" size="30"></td>
-                        </tr>
-                        <tr>
-                            <td align="right"><b>Subject:</b></td>
-                            <td><input type="text" name="subject" size="30"></td>
-                        </tr>
-                        <tr>
-                            <td align="right" valign="top"><b>Message:</b></td>
-                            <td><textarea name="message" rows="8" cols="40"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <input type="button" value="SEND MESSAGE">
-                                <span style="color: #FF00FF; font-style: italic; margin-left: 10px;">(Contact form functionality coming soon!)</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            
-            <div class="guestbook">
-                <h3>:: SIGN OUR GUESTBOOK! ::</h3>
-                <form>
-                    <p>Name: <input type="text" name="name" size="20"></p>
-                    <p>Email: <input type="text" name="email" size="20"></p>
-                    <p>Website: <input type="text" name="website" size="20"></p>
-                    <p>Message:<br><textarea name="message" rows="4" cols="50"></textarea></p>
-                    <div style="text-align: center; margin-top: 10px;">
-                        <input type="button" value="SIGN GUESTBOOK">
-                    </div>
-                    <p style="color: #FF00FF; font-style: italic; text-align: center; margin-top: 10px;">(Guestbook functionality coming soon!)</p>
-                </form>
-            </div>
-            
-            <div class="gif-divider">
-                <img src="/api/placeholder/500/20" alt="Divider" style="border: 1px solid #00FFFF;" />
-            </div>
-            
-            <div class="awards">
-                <a href="#"><img src="/api/placeholder/88/31" alt="Film Site of the Month" /></a>
-                <a href="#"><img src="/api/placeholder/88/31" alt="Valid HTML!" /></a>
-                <a href="#"><img src="/api/placeholder/88/31" alt="Top Resource Site" /></a>
-                <a href="#"><img src="/api/placeholder/88/31" alt="Best Film Community" /></a>
-            </div>
-            
-            <div class="webring">
-                <a href="#">&lt;&lt; PREV SITE</a> | 
-                <a href="#">VANCOUVER FILM WEBRING</a> | 
-                <a href="#">NEXT SITE &gt;&gt;</a>
-            </div>
-            
-            <div class="counter">
-                <span style="color: #FFFFFF;">You are visitor number:</span><br>
-                <img src="/api/placeholder/15/20" alt="1" />
-                <img src="/api/placeholder/15/20" alt="3" />
-                <img src="/api/placeholder/15/20" alt="3" />
-                <img src="/api/placeholder/15/20" alt="7" />
-            </div>
-            
-            <footer>
-                <p style="margin: 5px 0;">© 2025 VancouverFilmDept.com - All Rights Reserved</p>
-                <p style="margin: 5px 0;">This site best viewed with Internet Explorer 6.0 at 1024x768 resolution</p>
-                <p style="margin: 5px 0; color: #999999;">Site created with Frontpage 2003</p>
-                <p style="margin: 5px 0;">
-                    <a href="index.html" style="color: #00FFFF;">Home</a> | 
-                    <a href="#" style="color: #00FFFF;">Privacy Policy</a> | 
-                    <a href="about.html" style="color: #00FFFF;">Contact</a> | 
-                    <a href="#" style="color: #00FFFF;">Sitemap</a>
-                </p>
-                <p><img src="/api/placeholder/88/31" alt="Valid HTML!" /></p>
-            </footer>
+        </div>
+
+        <!-- Static Footer -->
+        <hr>
+        <div id="footer" class="center-text">
+             <p>This page was last updated on: June 11, 2025</p>
+             <p>!!! THANKS 4 VISITING !!!</p>
         </div>
     </div>
+
+<script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // --- DATABASES ---
+    const resources = [
+        { id: 'iatse-891', name: 'IATSE 891', category: 'Unions & Guilds', url: 'https://www.iatse.com/', description: 'Represents motion picture technicians, artists, and craftspersons...' },
+        { id: 'iatse-669', name: 'IATSE 669', category: 'Unions & Guilds', url: 'https://www.icg669.com/', description: 'The International Cinematographers Guild for Western Canada...' },
+        { id: 'dgc-bc', name: 'DGC BC', category: 'Unions & Guilds', url: 'https://www.dgc.ca/en/british-columbia/', description: 'The Directors Guild of Canada, BC District Council...' },
+        { id: 'ubcp-actra', name: 'UBCP / ACTRA', category: 'Unions & Guilds', url: 'https://www.ubcpactra.ca/', description: 'The Union of BC Performers, a branch of ACTRA...' },
+        { id: 'teamsters-155', name: 'Teamsters 155', category: 'Unions & Guilds', url: 'https://www.teamsters155.org/', description: 'Represents workers in transportation, security, catering...' },
+        { id: 'whites', name: 'William F. White', category: 'Rentals', url: 'https://www.whites.com/', description: 'The largest and most comprehensive rental house in Canada...' },
+        { id: 'sim-camera', name: 'Sim Camera', category: 'Rentals', url: 'https://www.siminternational.com/', description: 'A major rental house specializing in high-end digital cameras...' },
+        { id: 'panavision-yvr', name: 'Panavision Vancouver', category: 'Rentals', url: 'https://www.panavision.com/', description: 'The Vancouver branch of the world-renowned camera and lens company...' },
+        { id: 'keslow-camera', name: 'Keslow Camera', category: 'Rentals', url: 'https://keslowcamera.com/', description: 'A top-tier camera rental house...' },
+        { id: 'vfs-studios', name: 'Vancouver Film Studios', category: 'Studios', url: 'https://vancouverfilmstudios.com/', description: 'One of the largest production facilities in North America...' },
+        { id: 'bridge-studios', name: 'Bridge Studios', category: 'Studios', url: 'https://bridgestudios.com/', description: 'An iconic studio complex in Burnaby...' },
+        { id: 'trisko-talent', name: 'Trisko Talent', category: 'Casting', url: 'https://www.triskotalent.com/', description: 'A well-established talent agency...' },
+        { id: 'lucas-talent', name: 'Lucas Talent', category: 'Casting', url: 'https://www.lucastalent.com/', description: 'A premier literary and talent agency...' },
+        { id: 'showbiz-management', name: 'Showbiz Management', category: 'Casting', url: 'https://showbizmanagement.com/', description: 'A leading agency specializing in background performers...' },
+        { id: 'super-props', name: 'Super Props', category: 'Props & Set Dec', url: 'http://superprops.ca/', description: 'A large prop house specializing in hospital/medical props...' },
+        { id: 'antique-alley', name: 'Antique Alley', category: 'Props & Set Dec', url: 'https://antiquealleymovieprops.com/', description: 'A prop house focused on antiques and vintage items...' },
+        { id: 'hollynorth', name: 'HollyNorth Supplies', category: 'Expendables', url: 'https://hollynorth.com/', description: 'A comprehensive one-stop-shop for all production supplies...' },
+        { id: 'matrix-productions', name: 'Matrix Productions', category: 'Expendables', url: 'https://www.matrixproductionservices.com/', description: 'Provides a wide range of expendables and location equipment...' },
+        { id: 'creative-bc', name: 'Creative BC', category: 'Industry Orgs', url: 'https://www.creativebc.com/', description: 'An independent non-profit that supports and promotes BC\'s creative industries...' }
+    ];
+    const newsArticles = [
+        { title: 'New "Deadpool" Movie Wraps Filming in Vancouver', source: 'Variety', date: '2025-06-10', snippet: 'After months of shooting across the Lower Mainland, the highly anticipated superhero sequel has officially wrapped...', url: '#' },
+        { title: 'Creative BC Announces New Fund for Indigenous Filmmakers', source: 'The Hollywood Reporter', date: '2025-06-08', snippet: 'A new multi-million dollar fund aims to support and elevate storytelling from Indigenous creators...', url: '#' },
+        { title: 'Vancouver Animation Industry Sees Record Growth in 2025', source: 'Animation Magazine', date: '2025-06-05', snippet: 'Fueled by demand from streaming services, local animation studios are on a hiring spree...', url: '#' }
+    ];
+
+    // --- DOM ELEMENTS ---
+    const sectionContainer = document.getElementById('section-container');
+    const filterDropdown = document.getElementById('filter-dropdown');
+    const newsContainer = document.getElementById('news-container');
+    const mainNav = document.getElementById('main-nav');
+    const pageViews = document.querySelectorAll('.page-view');
+    const messageForm = document.getElementById('message-form');
+    const messagesContainer = document.getElementById('messages-container');
+    const nameInput = document.getElementById('name-input');
+    const messageInput = document.getElementById('message-input');
+    
+    // --- FIREBASE SETUP ---
+    // These variables are provided by the environment.
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+    
+    let db, auth, messagesCollection;
+
+    async function initializeFirebase() {
+        if (Object.keys(firebaseConfig).length === 0) {
+            console.error("Firebase config is not available.");
+            messagesContainer.innerHTML = "<p>Message Board is currently unavailable.</p>";
+            return;
+        }
+        
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            
+            // Define the collection path
+            messagesCollection = collection(db, 'artifacts', appId, 'public/data/messages');
+            
+            // Authenticate the user
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                 await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                 await signInAnonymously(auth);
+            }
+            
+            console.log("Firebase initialized and user authenticated.");
+            listenForMessages();
+            setupMessageForm();
+
+        } catch (error) {
+            console.error("Error initializing Firebase:", error);
+            messagesContainer.innerHTML = "<p>Error connecting to the Message Board.</p>";
+        }
+    }
+
+
+    // --- RENDER FUNCTIONS ---
+    function renderSections() {
+        const groupedResources = resources.reduce((acc, r) => { (acc[r.category] = acc[r.category] || []).push(r); return acc; }, {});
+        sectionContainer.innerHTML = Object.keys(groupedResources).map(cat => `
+            <div class="resource-section" data-category="${cat}">
+                <h2>${cat}</h2>
+                <ul>${groupedResources[cat].map(r => `<li><a href="${r.url}" target="_blank">${r.name}</a> - ${r.description}</li>`).join('')}</ul>
+            </div>`).join('');
+    }
+
+    function renderNews() {
+        newsContainer.innerHTML = newsArticles.map(a => `
+            <div class="news-article">
+                <h3 class="news-title"><a href="${a.url}" target="_blank">${a.title}</a></h3>
+                <div class="news-meta">Source: ${a.source} | Published: ${a.date}</div>
+                <p class="news-snippet">${a.snippet}</p>
+            </div>`).join('');
+    }
+
+    // --- EVENT LISTENERS & SETUP ---
+    function setupFilter() {
+        const categories = ['All', ...new Set(resources.map(r => r.category))];
+        filterDropdown.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+        filterDropdown.addEventListener('change', e => {
+            const selected = e.target.value;
+            document.querySelectorAll('.resource-section').forEach(s => s.classList.toggle('hidden', !(selected === 'All' || s.dataset.category === selected)));
+        });
+    }
+
+    function setupNavigation() {
+        mainNav.addEventListener('click', e => {
+            if (e.target.tagName === 'BUTTON') {
+                const viewId = e.target.dataset.view;
+                mainNav.querySelectorAll('button.nav-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                pageViews.forEach(v => v.classList.toggle('active', v.id === viewId));
+            }
+        });
+    }
+
+    function setupMessageForm() {
+        messageForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = nameInput.value.trim();
+            const text = messageInput.value.trim();
+            
+            if (name && text && auth.currentUser) {
+                try {
+                    await addDoc(messagesCollection, {
+                        name: name,
+                        text: text,
+                        timestamp: serverTimestamp()
+                    });
+                    messageInput.value = ''; // Clear message field on successful post
+                    messageInput.focus();
+                } catch (error) {
+                    console.error("Error adding document: ", error);
+                    alert("Could not post message. Please try again.");
+                }
+            }
+        });
+    }
+
+    function listenForMessages() {
+        if (!messagesCollection) return;
+        
+        // Using orderBy requires a composite index in Firestore. For simplicity,
+        // we will fetch and sort on the client, which is fine for small-scale apps.
+        // For larger apps, creating the index is recommended.
+        const q = query(collection(db, 'artifacts', appId, 'public/data/messages'));
+        onSnapshot(q, (snapshot) => {
+            const messages = [];
+            snapshot.forEach((doc) => {
+                messages.push({ ...doc.data(), id: doc.id });
+            });
+            
+            // Sort messages by timestamp, newest first.
+            messages.sort((a, b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
+
+            if (messages.length === 0) {
+                messagesContainer.innerHTML = '<p>No messages yet. Be the first!</p>';
+                return;
+            }
+            
+            messagesContainer.innerHTML = messages.map(msg => `
+                <div class="message-item">
+                    <div class="message-header">
+                        <span class="message-name">${msg.name || 'Anonymous'}</span>
+                        <span class="message-time">${msg.timestamp ? new Date(msg.timestamp.seconds * 1000).toLocaleString() : 'Just now'}</span>
+                    </div>
+                    <p class="message-text">${msg.text || ''}</p>
+                </div>
+            `).join('');
+        }, (error) => {
+            console.error("Error fetching messages: ", error);
+            messagesContainer.innerHTML = "<p>Could not load messages.</p>";
+        });
+    }
+    
+    // --- INITIALIZATION ---
+    function init() {
+        renderSections();
+        setupFilter();
+        renderNews();
+        setupNavigation();
+        initializeFirebase();
+    }
+
+    init();
+</script>
 </body>
 </html>
-        
