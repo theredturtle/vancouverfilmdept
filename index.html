@@ -78,10 +78,6 @@
             color: #1a1a2e;
         }
         
-        /* --- Page Views --- */
-        .page-view { display: none; }
-        .page-view.active { display: block; }
-        
         /* --- Filter Dropdown --- */
         #filter-container {
             display: flex; justify-content: center; align-items: center; gap: 15px;
@@ -114,43 +110,6 @@
             border-bottom: 1px dotted transparent;
         }
         
-        /* --- News Section --- */
-        .news-article {
-            border-bottom: 1px solid #4a4a68; padding: 15px 5px; margin-bottom: 15px;
-        }
-        .news-article:last-child { border-bottom: none; }
-        .news-title {
-            color: #ffffff; font-size: 24px; margin: 0 0 5px 0; font-family: 'Poppins', sans-serif;
-        }
-        .news-meta { font-size: 16px; color: #9370db; margin-bottom: 10px; }
-        .news-snippet { font-size: 18px; color: #e0e0e0; line-height: 1.5; }
-
-        /* --- Message Board Section --- */
-        #message-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
-        .form-group { display: flex; flex-direction: column; }
-        #message-form label { font-size: 18px; color: #9370db; margin-bottom: 5px; }
-        #message-form input, #message-form textarea {
-            background-color: rgba(0, 0, 0, 0.2); border: 1px solid #4a4a68;
-            color: #e0e0e0; padding: 10px; font-family: 'VT323', monospace;
-            font-size: 18px; border-radius: 4px;
-        }
-        #message-form textarea { resize: vertical; min-height: 80px; }
-        #message-form button {
-            align-self: flex-start; padding: 10px 20px; border: 2px solid #87ceeb;
-            background-color: transparent; color: #87ceeb; font-size: 18px;
-            cursor: pointer; transition: all 0.2s ease-in-out;
-        }
-        #message-form button:hover { background-color: #87ceeb; color: #1a1a2e; }
-        #messages-container { margin-top: 30px; }
-        .message-item {
-            background-color: rgba(0, 0, 0, 0.1); border: 1px dashed #4a4a68;
-            padding: 15px; margin-bottom: 15px; border-radius: 5px;
-        }
-        .message-header { display: flex; justify-content: space-between; align-items: center; }
-        .message-name { font-weight: bold; color: #87ceeb; font-size: 22px; }
-        .message-time { font-size: 14px; color: #9370db; }
-        .message-text { margin-top: 10px; color: #e0e0e0; white-space: pre-wrap; word-wrap: break-word;}
-
         /* --- Footer & Flair --- */
         hr {
             border: 0; height: 30px; background-image: url('https://web.archive.org/web/20091027181055if_/http://geocities.com/hollywood/set/7338/flamingtextbar.gif');
@@ -181,143 +140,88 @@
         
         <!-- Main Navigation -->
         <nav id="main-nav">
-            <button class="nav-btn active" data-view="hub-view">Resource Hub</button>
-            <button class="nav-btn" data-view="news-view">News</button>
+            <a href="#" class="nav-btn active">Resource Hub</a>
             <a href="https://www.creativebc.com/services/provincial-film-commission/in-production/" target="_blank" class="nav-btn">In Production</a>
-            <button class="nav-btn" data-view="board-view">Message Board</button>
+            <a href="https://old.reddit.com/r/VancouverFilmDept/" target="_blank" class="nav-btn">Message Board</a>
         </nav>
 
         <div class="ticker-wrap">
-            <div class="ticker">**!! YOUR GUIDE TO THE VANCOUVER FILM DEPARTMENT !!** LEAVE A MESSAGE ON THE BOARD! !!**</div>
+            <div class="ticker">**!! YOUR GUIDE TO THE VANCOUVER FILM DEPARTMENT !!** CHECK OUT THE MESSAGE BOARD! !!**</div>
         </div>
         <hr>
 
         <!-- Dynamic Content Area -->
-        <div id="hub-view" class="page-view active">
+        <div id="hub-view">
             <div id="filter-container">
                 <label for="filter-dropdown">Filter by Department:</label>
                 <select id="filter-dropdown"></select>
             </div>
-            <div id="section-container"></div>
-        </div>
-        
-        <div id="news-view" class="page-view">
-            <h2>Latest Industry News</h2>
-            <div id="news-container"></div>
-        </div>
-        
-        <div id="board-view" class="page-view">
-            <h2>Message Board</h2>
-            <p>Leave a shout-out, ask a question, or post a gig. Keep it professional!</p>
-            <form id="message-form">
-                <div class="form-group">
-                    <label for="name-input">Your Name:</label>
-                    <input type="text" id="name-input" required maxlength="50">
-                </div>
-                <div class="form-group">
-                    <label for="message-input">Your Message:</label>
-                    <textarea id="message-input" required maxlength="500"></textarea>
-                </div>
-                <button type="submit">Post Message</button>
-            </form>
-            <div id="messages-container">
-                <p>Loading messages...</p>
+            <div id="section-container">
+                <!-- Sections will be injected here by JavaScript -->
             </div>
         </div>
 
         <!-- Static Footer -->
         <hr>
         <div id="footer" class="center-text">
-             <p>This page was last updated on: June 11, 2025</p>
+             <p>This page was last updated on: June 17, 2025</p>
              <p>!!! THANKS 4 VISITING !!!</p>
         </div>
     </div>
 
-<script type="module">
-    // Import Firebase modules
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-    // --- DATABASES ---
+<script>
+    // --- DATABASE ---
     const resources = [
+        // Unions & Guilds
         { id: 'iatse-891', name: 'IATSE 891', category: 'Unions & Guilds', url: 'https://www.iatse.com/', description: 'Represents motion picture technicians, artists, and craftspersons...' },
         { id: 'iatse-669', name: 'IATSE 669', category: 'Unions & Guilds', url: 'https://www.icg669.com/', description: 'The International Cinematographers Guild for Western Canada...' },
         { id: 'dgc-bc', name: 'DGC BC', category: 'Unions & Guilds', url: 'https://www.dgc.ca/en/british-columbia/', description: 'The Directors Guild of Canada, BC District Council...' },
         { id: 'ubcp-actra', name: 'UBCP / ACTRA', category: 'Unions & Guilds', url: 'https://www.ubcpactra.ca/', description: 'The Union of BC Performers, a branch of ACTRA...' },
         { id: 'teamsters-155', name: 'Teamsters 155', category: 'Unions & Guilds', url: 'https://www.teamsters155.org/', description: 'Represents workers in transportation, security, catering...' },
-        { id: 'whites', name: 'William F. White', category: 'Rentals', url: 'https://www.whites.com/', description: 'The largest and most comprehensive rental house in Canada...' },
-        { id: 'sim-camera', name: 'Sim Camera', category: 'Rentals', url: 'https://www.siminternational.com/', description: 'A major rental house specializing in high-end digital cameras...' },
-        { id: 'panavision-yvr', name: 'Panavision Vancouver', category: 'Rentals', url: 'https://www.panavision.com/', description: 'The Vancouver branch of the world-renowned camera and lens company...' },
+        
+        // Rentals (Sorted Alphabetically)
+        { id: 'brightside-cinema', name: 'Brightside Cinema', category: 'Rentals', url: 'https://brightsidecinema.com/', description: 'Specializes in high-end digital cinema cameras and optics.' },
+        { id: 'enlarge-vision', name: 'Enlarge Vision Rentals', category: 'Rentals', url: 'https://www.enlargevision.ca/', description: 'boutique rental house servicing Vertical Shorts.' },
         { id: 'keslow-camera', name: 'Keslow Camera', category: 'Rentals', url: 'https://keslowcamera.com/', description: 'A top-tier camera rental house...' },
+        { id: 'lorne-lapham', name: 'Lorne Lapham Sales and Rentals', category: 'Rentals', url: 'https://llsr.com/', description: 'Provides sales and rentals for cameras, lenses, and accessories.' },
+        { id: 'mbse', name: 'MBS Equipment Company', category: 'Rentals', url: 'https://www.mbseco.com/', description: 'Major supplier of lighting and grip equipment.' },
+        { id: 'panavision-yvr', name: 'Panavision Vancouver', category: 'Rentals', url: 'https://www.panavision.com/', description: 'The Vancouver branch of the world-renowned camera and lens company...' },
+        { id: 'raw-camera', name: 'Raw Camera', category: 'Rentals', url: 'https://rawcamera.com/', description: 'Boutique digital cinema camera and lens rental house.' },
+        { id: 'red-eye-cinema', name: 'Red Eye Cinema', category: 'Rentals', url: 'http://redeyecinema.com/', description: 'ARRI and RED camera packages for rental.' },
+        { id: 'sparkys', name: 'Sparky\'s Lighting Ltd.', category: 'Rentals', url: 'http://www.sparkyslighting.com/', description: 'Lighting and grip rentals.' },
+        { id: 'sunbelt-rentals', name: 'Sunbelt Rentals', category: 'Rentals', url: 'https://www.sunbeltrentals.com/film/', description: 'Formerly William F. White. Grip, Lighting, Camera, and more.' },
+
+        // Studios
         { id: 'vfs-studios', name: 'Vancouver Film Studios', category: 'Studios', url: 'https://vancouverfilmstudios.com/', description: 'One of the largest production facilities in North America...' },
         { id: 'bridge-studios', name: 'Bridge Studios', category: 'Studios', url: 'https://bridgestudios.com/', description: 'An iconic studio complex in Burnaby...' },
+
+        // Production Services
+        { id: 'inspired-image', name: 'Inspired Image Picture Company Inc.', category: 'Production Services', url: 'https://inspiredimage.ca/', description: 'Full-service video production for commercials and corporate content.' },
+        { id: 'omnifilm', name: 'Omnifilm Entertainment', category: 'Production Services', url: 'https://www.omnifilm.com/', description: 'Produces content across drama, comedy, and factual series.' },
+        { id: 'pink-buffalo', name: 'Pink Buffalo Films', category: 'Production Services', url: 'https://pinkbuffalofilms.com/', description: 'Experienced in film/TV series, production services, and branded content.' },
+        { id: 'matrix-productions-services', name: 'Matrix Production Services', category: 'Production Services', url: 'https://www.matrixproductionservices.com/', description: 'Offers diverse services for productions, from location gear to expendables.' },
+
+        // Casting
         { id: 'trisko-talent', name: 'Trisko Talent', category: 'Casting', url: 'https://www.triskotalent.com/', description: 'A well-established talent agency...' },
         { id: 'lucas-talent', name: 'Lucas Talent', category: 'Casting', url: 'https://www.lucastalent.com/', description: 'A premier literary and talent agency...' },
         { id: 'showbiz-management', name: 'Showbiz Management', category: 'Casting', url: 'https://showbizmanagement.com/', description: 'A leading agency specializing in background performers...' },
+
+        // Props & Set Dec
         { id: 'super-props', name: 'Super Props', category: 'Props & Set Dec', url: 'http://superprops.ca/', description: 'A large prop house specializing in hospital/medical props...' },
         { id: 'antique-alley', name: 'Antique Alley', category: 'Props & Set Dec', url: 'https://antiquealleymovieprops.com/', description: 'A prop house focused on antiques and vintage items...' },
+
+        // Expendables
         { id: 'hollynorth', name: 'HollyNorth Supplies', category: 'Expendables', url: 'https://hollynorth.com/', description: 'A comprehensive one-stop-shop for all production supplies...' },
-        { id: 'matrix-productions', name: 'Matrix Productions', category: 'Expendables', url: 'https://www.matrixproductionservices.com/', description: 'Provides a wide range of expendables and location equipment...' },
+        { id: 'matrix-productions', name: 'Matrix Production Services', category: 'Expendables', url: 'https://www.matrixproductionservices.com/', description: 'Provides a wide range of expendables and location equipment...' },
+        
+        // Industry Orgs
         { id: 'creative-bc', name: 'Creative BC', category: 'Industry Orgs', url: 'https://www.creativebc.com/', description: 'An independent non-profit that supports and promotes BC\'s creative industries...' }
-    ];
-    const newsArticles = [
-        { title: 'New "Deadpool" Movie Wraps Filming in Vancouver', source: 'Variety', date: '2025-06-10', snippet: 'After months of shooting across the Lower Mainland, the highly anticipated superhero sequel has officially wrapped...', url: '#' },
-        { title: 'Creative BC Announces New Fund for Indigenous Filmmakers', source: 'The Hollywood Reporter', date: '2025-06-08', snippet: 'A new multi-million dollar fund aims to support and elevate storytelling from Indigenous creators...', url: '#' },
-        { title: 'Vancouver Animation Industry Sees Record Growth in 2025', source: 'Animation Magazine', date: '2025-06-05', snippet: 'Fueled by demand from streaming services, local animation studios are on a hiring spree...', url: '#' }
     ];
 
     // --- DOM ELEMENTS ---
     const sectionContainer = document.getElementById('section-container');
     const filterDropdown = document.getElementById('filter-dropdown');
-    const newsContainer = document.getElementById('news-container');
-    const mainNav = document.getElementById('main-nav');
-    const pageViews = document.querySelectorAll('.page-view');
-    const messageForm = document.getElementById('message-form');
-    const messagesContainer = document.getElementById('messages-container');
-    const nameInput = document.getElementById('name-input');
-    const messageInput = document.getElementById('message-input');
     
-    // --- FIREBASE SETUP ---
-    // These variables are provided by the environment.
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-    
-    let db, auth, messagesCollection;
-
-    async function initializeFirebase() {
-        if (Object.keys(firebaseConfig).length === 0) {
-            console.error("Firebase config is not available.");
-            messagesContainer.innerHTML = "<p>Message Board is currently unavailable.</p>";
-            return;
-        }
-        
-        try {
-            const app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-            
-            // Define the collection path
-            messagesCollection = collection(db, 'artifacts', appId, 'public/data/messages');
-            
-            // Authenticate the user
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                 await signInWithCustomToken(auth, __initial_auth_token);
-            } else {
-                 await signInAnonymously(auth);
-            }
-            
-            console.log("Firebase initialized and user authenticated.");
-            listenForMessages();
-            setupMessageForm();
-
-        } catch (error) {
-            console.error("Error initializing Firebase:", error);
-            messagesContainer.innerHTML = "<p>Error connecting to the Message Board.</p>";
-        }
-    }
-
-
     // --- RENDER FUNCTIONS ---
     function renderSections() {
         const groupedResources = resources.reduce((acc, r) => { (acc[r.category] = acc[r.category] || []).push(r); return acc; }, {});
@@ -325,15 +229,6 @@
             <div class="resource-section" data-category="${cat}">
                 <h2>${cat}</h2>
                 <ul>${groupedResources[cat].map(r => `<li><a href="${r.url}" target="_blank">${r.name}</a> - ${r.description}</li>`).join('')}</ul>
-            </div>`).join('');
-    }
-
-    function renderNews() {
-        newsContainer.innerHTML = newsArticles.map(a => `
-            <div class="news-article">
-                <h3 class="news-title"><a href="${a.url}" target="_blank">${a.title}</a></h3>
-                <div class="news-meta">Source: ${a.source} | Published: ${a.date}</div>
-                <p class="news-snippet">${a.snippet}</p>
             </div>`).join('');
     }
 
@@ -346,84 +241,11 @@
             document.querySelectorAll('.resource-section').forEach(s => s.classList.toggle('hidden', !(selected === 'All' || s.dataset.category === selected)));
         });
     }
-
-    function setupNavigation() {
-        mainNav.addEventListener('click', e => {
-            if (e.target.tagName === 'BUTTON') {
-                const viewId = e.target.dataset.view;
-                mainNav.querySelectorAll('button.nav-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                pageViews.forEach(v => v.classList.toggle('active', v.id === viewId));
-            }
-        });
-    }
-
-    function setupMessageForm() {
-        messageForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = nameInput.value.trim();
-            const text = messageInput.value.trim();
-            
-            if (name && text && auth.currentUser) {
-                try {
-                    await addDoc(messagesCollection, {
-                        name: name,
-                        text: text,
-                        timestamp: serverTimestamp()
-                    });
-                    messageInput.value = ''; // Clear message field on successful post
-                    messageInput.focus();
-                } catch (error) {
-                    console.error("Error adding document: ", error);
-                    alert("Could not post message. Please try again.");
-                }
-            }
-        });
-    }
-
-    function listenForMessages() {
-        if (!messagesCollection) return;
-        
-        // Using orderBy requires a composite index in Firestore. For simplicity,
-        // we will fetch and sort on the client, which is fine for small-scale apps.
-        // For larger apps, creating the index is recommended.
-        const q = query(collection(db, 'artifacts', appId, 'public/data/messages'));
-        onSnapshot(q, (snapshot) => {
-            const messages = [];
-            snapshot.forEach((doc) => {
-                messages.push({ ...doc.data(), id: doc.id });
-            });
-            
-            // Sort messages by timestamp, newest first.
-            messages.sort((a, b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
-
-            if (messages.length === 0) {
-                messagesContainer.innerHTML = '<p>No messages yet. Be the first!</p>';
-                return;
-            }
-            
-            messagesContainer.innerHTML = messages.map(msg => `
-                <div class="message-item">
-                    <div class="message-header">
-                        <span class="message-name">${msg.name || 'Anonymous'}</span>
-                        <span class="message-time">${msg.timestamp ? new Date(msg.timestamp.seconds * 1000).toLocaleString() : 'Just now'}</span>
-                    </div>
-                    <p class="message-text">${msg.text || ''}</p>
-                </div>
-            `).join('');
-        }, (error) => {
-            console.error("Error fetching messages: ", error);
-            messagesContainer.innerHTML = "<p>Could not load messages.</p>";
-        });
-    }
     
     // --- INITIALIZATION ---
     function init() {
         renderSections();
         setupFilter();
-        renderNews();
-        setupNavigation();
-        initializeFirebase();
     }
 
     init();
