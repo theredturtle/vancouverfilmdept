@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~*~ Vancouver Film Dept - Resource Hub ~*~</title>
+    <title>Resource Wiki</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%231a1a2e'/><circle cx='50' cy='50' r='35' fill='none' stroke='%23e0e0e0' stroke-width='8'/><circle cx='50' cy='50' r='15' fill='%2387ceeb'/></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=VT323&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* --- Core Styles --- */
         body {
@@ -49,6 +50,23 @@
             0%   { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
+        
+        /* --- Animated SVG Slate --- */
+        .animated-slate-svg {
+            width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .clapper {
+            transform-origin: left bottom; /* Hinge from the bottom-left corner */
+            animation: clap 2.5s ease-in-out infinite;
+        }
+        @keyframes clap {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(-15deg); }
+            20% { transform: rotate(0deg); }
+        }
+
 
         /* --- Main Navigation --- */
         #main-nav {
@@ -78,6 +96,10 @@
             color: #1a1a2e;
         }
         
+        /* --- Page Views --- */
+        .page-view { display: none; }
+        .page-view.active { display: block; }
+
         /* --- Filter Dropdown --- */
         #filter-container {
             display: flex; justify-content: center; align-items: center; gap: 15px;
@@ -98,6 +120,9 @@
             letter-spacing: 2px; border-bottom: 3px solid #4a4a68;
             padding-bottom: 8px; margin-top: 40px;
         }
+        h3 {
+            color: #9370db; font-weight: bold; text-decoration: none; margin-top: 25px;
+        }
         ul { list-style-type: none; padding-left: 20px; }
         li { padding-bottom: 12px; position: relative; padding-left: 25px; }
         li::before { content: '>>'; position: absolute; left: 0; top: 0; color: #9370db; }
@@ -108,6 +133,29 @@
         li a:hover {
             color: #1a1a2e; background-color: #87ceeb; text-shadow: none;
             border-bottom: 1px dotted transparent;
+        }
+        
+        /* --- Written Text/Wiki Section --- */
+        #wiki-view .text-content {
+            font-family: 'Roboto', sans-serif; /* New font for wiki page */
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        .text-content p {
+             margin-bottom: 1.5em;
+        }
+        .text-content h3 {
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- Newsletter Embed Section --- */
+        #newsletter-view .beehiiv-embed {
+            width: 100%;
+            max-width: 450px; /* Control max width */
+            height: 300px;
+            margin: 20px auto;
+            display: block;
         }
         
         /* --- Footer & Flair --- */
@@ -134,24 +182,39 @@
     <div id="main-container">
         <!-- Static Header -->
         <div class="center-text">
-            <img src="https://web.archive.org/web/20090831182211if_/http://www.geocities.com/hollywood/casting/2005/camera.gif" alt="Animated Camera" width="100">
+            <svg class="animated-slate-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g class="clapper">
+                    <rect x="5" y="5" width="90" height="20" fill="#e0e0e0" />
+                    <rect x="8" y="8" width="15" height="14" fill="#1a1a2e" />
+                    <rect x="25" y="8" width="15" height="14" fill="#1a1a2e" />
+                    <rect x="42" y="8" width="15" height="14" fill="#1a1a2e" />
+                    <rect x="59" y="8" width="15" height="14" fill="#1a1a2e" />
+                    <rect x="76" y="8" width="15" height="14" fill="#1a1a2e" />
+                </g>
+                <rect x="5" y="25" width="90" height="70" fill="#1a1a2e" stroke="#e0e0e0" stroke-width="2" />
+                <text x="50" y="52" font-family="Poppins, sans-serif" font-size="12" fill="#e0e0e0" text-anchor="middle">VFD</text>
+                <text x="50" y="66" font-family="VT323, monospace" font-size="8" fill="#e0e0e0" text-anchor="middle">SCENE: 01</text>
+                <text x="50" y="79" font-family="VT323, monospace" font-size="8" fill="#e0e0e0" text-anchor="middle">TAKE: 01</text>
+            </svg>
         </div>
         <h1>Vancouver Film Dept</h1>
         
         <!-- Main Navigation -->
         <nav id="main-nav">
-            <a href="#" class="nav-btn active">Resource Hub</a>
+            <button class="nav-btn" data-view="wiki-view">Wiki</button>
+            <button class="nav-btn active" data-view="hub-view">Resource Hub</button>
+            <button class="nav-btn" data-view="newsletter-view">Newsletter</button>
             <a href="https://www.creativebc.com/services/provincial-film-commission/in-production/" target="_blank" class="nav-btn">In Production</a>
             <a href="https://old.reddit.com/r/VancouverFilmDept/" target="_blank" class="nav-btn">Message Board</a>
         </nav>
 
         <div class="ticker-wrap">
-            <div class="ticker">**!! YOUR GUIDE TO THE VANCOUVER FILM DEPARTMENT !!** CHECK OUT THE MESSAGE BOARD! !!**</div>
+            <div class="ticker">**!! YOUR GUIDE TO THE VANCOUVER FILM DEPARTMENT !!** SUBSCRIBE TO THE NEWSLETTER! !!**</div>
         </div>
         <hr>
 
         <!-- Dynamic Content Area -->
-        <div id="hub-view">
+        <div id="hub-view" class="page-view active">
             <div id="filter-container">
                 <label for="filter-dropdown">Filter by Department:</label>
                 <select id="filter-dropdown"></select>
@@ -159,6 +222,35 @@
             <div id="section-container">
                 <!-- Sections will be injected here by JavaScript -->
             </div>
+        </div>
+        <div id="wiki-view" class="page-view">
+             <h2>Vancouver Film Industry: A Candid 2025 Update</h2>
+             <div class="text-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                
+                <h3>Post-2020 Slowdown: Pandemic, Strikes & Tariff Jitters</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.</p>
+                
+                <h3>Starting Out: Entry-Level Realities (AKA “So You Wanna Be a PA?”)</h3>
+                <p>Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque.</p>
+
+                <h3>Dreaming Big: Directing and Writing Ambitions</h3>
+                <p>Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
+
+                <h3>The Indie Scene: Crazy8s and DIY Filmmaking</h3>
+                <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna,endrerit sit amet, tincidunt ac, viverra sed, nulla.</p>
+
+                <h3>The Film School Debate: School vs. Set</h3>
+                <p>Donec porta diam eu massa. Quisque diam lorem, interdum vitae,dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Vestibulum iaculis lacinia est. Proin dictum elementum velit. Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl.</p>
+             </div>
+        </div>
+        
+        <div id="newsletter-view" class="page-view">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p class="center-text">Get the latest industry news and resource updates delivered to your inbox.</p>
+             <!-- Beehiiv Embed Code -->
+            <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+            <iframe src="https://subscribe-forms.beehiiv.com/62412e9b-49df-4d2e-b44b-2e6880784284" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="border-radius: 0px !important; background-color: transparent;"></iframe>
         </div>
 
         <!-- Static Footer -->
@@ -170,85 +262,120 @@
     </div>
 
 <script>
-    // --- DATABASE ---
-    const resources = [
-        // Unions & Guilds
-        { id: 'iatse-891', name: 'IATSE 891', category: 'Unions & Guilds', url: 'https://www.iatse.com/', description: 'Represents motion picture technicians, artists, and craftspersons...' },
-        { id: 'iatse-669', name: 'IATSE 669', category: 'Unions & Guilds', url: 'https://www.icg669.com/', description: 'The International Cinematographers Guild for Western Canada...' },
-        { id: 'dgc-bc', name: 'DGC BC', category: 'Unions & Guilds', url: 'https://www.dgc.ca/en/british-columbia/', description: 'The Directors Guild of Canada, BC District Council...' },
-        { id: 'ubcp-actra', name: 'UBCP / ACTRA', category: 'Unions & Guilds', url: 'https://www.ubcpactra.ca/', description: 'The Union of BC Performers, a branch of ACTRA...' },
-        { id: 'teamsters-155', name: 'Teamsters 155', category: 'Unions & Guilds', url: 'https://www.teamsters155.org/', description: 'Represents workers in transportation, security, catering...' },
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DATABASE ---
+        const resources = [
+            // Unions & Guilds
+            { id: 'iatse-891', name: 'IATSE 891', category: 'Unions & Guilds', url: 'https://www.iatse.com/', description: 'Represents motion picture technicians, artists, and craftspersons...' },
+            { id: 'iatse-669', name: 'IATSE 669', category: 'Unions & Guilds', url: 'https://www.icg669.com/', description: 'The International Cinematographers Guild for Western Canada...' },
+            { id: 'dgc-bc', name: 'DGC BC', category: 'Unions & Guilds', url: 'https://www.dgc.ca/en/british-columbia/', description: 'The Directors Guild of Canada, BC District Council...' },
+            { id: 'ubcp-actra', name: 'UBCP / ACTRA', category: 'Unions & Guilds', url: 'https://www.ubcpactra.ca/', description: 'The Union of BC Performers, a branch of ACTRA...' },
+            { id: 'teamsters-155', name: 'Teamsters 155', category: 'Unions & Guilds', url: 'https://www.teamsters155.org/', description: 'Represents workers in transportation, security, catering...' },
+            
+            // Rentals (Sorted Alphabetically)
+            { id: 'brightside-cinema', name: 'Brightside Cinema', category: 'Rentals', url: 'https://brightsidecinema.com/', description: 'Specializes in high-end digital cinema cameras and optics.' },
+            { id: 'enlarge-vision', name: 'Enlarge Vision Rentals', category: 'Rentals', url: 'https://www.enlargevision.ca/', description: 'boutique rental house servicing Vertical Shorts.' },
+            { id: 'inspired-image-rental', name: 'Inspired Image Picture Company Inc.', category: 'Rentals', url: 'https://inspiredimage.ca/', description: 'Full-service video production and equipment rentals.' },
+            { id: 'keslow-camera', name: 'Keslow Camera', category: 'Rentals', url: 'https://keslowcamera.com/', description: 'A top-tier camera rental house...' },
+            { id: 'lorne-lapham-rental', name: 'Lorne Lapham Sales and Rentals', category: 'Rentals', url: 'https://llsr.com/', description: 'Provides sales and rentals for cameras, lenses, and accessories.' },
+            { id: 'mbse', name: 'MBS Equipment Company', category: 'Rentals', url: 'https://www.mbseco.com/', description: 'Major supplier of lighting and grip equipment.' },
+            { id: 'panavision-yvr', name: 'Panavision Vancouver', category: 'Rentals', url: 'https://www.panavision.com/', description: 'The Vancouver branch of the world-renowned camera and lens company...' },
+            { id: 'raw-camera', name: 'Raw Camera', category: 'Rentals', url: 'https://rawcamera.com/', description: 'Boutique digital cinema camera and lens rental house.' },
+            { id: 'red-eye-cinema', name: 'Red Eye Cinema', category: 'Rentals', url: 'http://redeyecinema.com/', description: 'ARRI and RED camera packages for rental.' },
+            { id: 'sparkys', name: 'Sparky\'s Lighting Ltd.', category: 'Rentals', url: 'http://www.sparkyslighting.com/', description: 'Lighting and grip rentals.' },
+            { id: 'sunbelt-rentals', name: 'Sunbelt Rentals', category: 'Rentals', url: 'https://www.sunbeltrentals.com/film/', description: 'Formerly William F. White. Grip, Lighting, Camera, and more.' },
+
+            // Sales
+            { id: 'lorne-lapham-sales', name: 'Lorne Lapham Sales and Rentals', category: 'Sales', url: 'https://llsr.com/', description: 'Retailer for professional cameras, lenses, and production gear.' },
+            { id: 'primegear', name: 'PrimeGear', category: 'Sales', url: 'https://www.primegear.ca/', description: 'Vancouver-based retailer for new and used professional video equipment.' },
+
+            // Studios
+            { id: 'vfs-studios', name: 'Vancouver Film Studios', category: 'Studios', url: 'https://vancouverfilmstudios.com/', description: 'One of the largest production facilities in North America...' },
+            { id: 'bridge-studios', name: 'Bridge Studios', category: 'Studios', url: 'https://bridgestudios.com/', description: 'An iconic studio complex in Burnaby...' },
+
+            // Production Services
+            { id: 'inspired-image', name: 'Inspired Image Picture Company Inc.', category: 'Production Services', url: 'https://inspiredimage.ca/', description: 'Full-service video production for commercials and corporate content.' },
+            { id: 'omnifilm', name: 'Omnifilm Entertainment', category: 'Production Services', url: 'https://www.omnifilm.com/', description: 'Produces content across drama, comedy, and factual series.' },
+            { id: 'pink-buffalo', name: 'Pink Buffalo Films', category: 'Production Services', url: 'https://pinkbuffalofilms.com/', description: 'Experienced in film/TV series, production services, and branded content.' },
+            { id: 'matrix-productions-services', name: 'Matrix Production Services', category: 'Production Services', url: 'https://www.matrixproductionservices.com/', description: 'Offers diverse services for productions, from location gear to expendables.' },
+
+            // Casting
+            { id: 'trisko-talent', name: 'Trisko Talent', category: 'Casting', url: 'https://www.triskotalent.com/', description: 'A well-established talent agency...' },
+            { id: 'lucas-talent', name: 'Lucas Talent', category: 'Casting', url: 'https://www.lucastalent.com/', description: 'A premier literary and talent agency...' },
+            { id: 'showbiz-management', name: 'Showbiz Management', category: 'Casting', url: 'https://showbizmanagement.com/', description: 'A leading agency specializing in background performers...' },
+
+            // Props & Set Dec
+            { id: 'antique-alley', name: 'Antique Alley', category: 'Props & Set Dec', url: 'https://antiquealleymovieprops.com/', description: 'A prop house focused on antiques and vintage items...' },
+            { id: 'film-baby', name: 'Film Baby Rentals', category: 'Props & Set Dec', url: 'https://filmbaby.ca/', description: 'Specializes in props and set decoration for infants and children.' },
+            { id: 'super-props', name: 'Super Props', category: 'Props & Set Dec', url: 'http://superprops.ca/', description: 'A large prop house specializing in hospital/medical props...' },
+
+            // Expendables
+            { id: 'hollynorth', name: 'HollyNorth Supplies', category: 'Expendables', url: 'https://hollynorth.com/', description: 'A comprehensive one-stop-shop for all production supplies...' },
+            { id: 'matrix-productions', name: 'Matrix Production Services', category: 'Expendables', url: 'https://www.matrixproductionservices.com/', description: 'Provides a wide range of expendables and location equipment...' },
+            
+            // Industry Orgs
+            { id: 'creative-bc', name: 'Creative BC', category: 'Industry Orgs', url: 'https://www.creativebc.com/', description: 'An independent non-profit that supports and promotes BC\'s creative industries...' }
+        ];
+
+        // --- DOM ELEMENTS ---
+        const sectionContainer = document.getElementById('section-container');
+        const filterDropdown = document.getElementById('filter-dropdown');
+        const mainNav = document.getElementById('main-nav');
+        const pageViews = document.querySelectorAll('.page-view');
         
-        // Rentals (Sorted Alphabetically)
-        { id: 'brightside-cinema', name: 'Brightside Cinema', category: 'Rentals', url: 'https://brightsidecinema.com/', description: 'Specializes in high-end digital cinema cameras and optics.' },
-        { id: 'enlarge-vision', name: 'Enlarge Vision Rentals', category: 'Rentals', url: 'https://www.enlargevision.ca/', description: 'boutique rental house servicing Vertical Shorts.' },
-        { id: 'keslow-camera', name: 'Keslow Camera', category: 'Rentals', url: 'https://keslowcamera.com/', description: 'A top-tier camera rental house...' },
-        { id: 'lorne-lapham', name: 'Lorne Lapham Sales and Rentals', category: 'Rentals', url: 'https://llsr.com/', description: 'Provides sales and rentals for cameras, lenses, and accessories.' },
-        { id: 'mbse', name: 'MBS Equipment Company', category: 'Rentals', url: 'https://www.mbseco.com/', description: 'Major supplier of lighting and grip equipment.' },
-        { id: 'panavision-yvr', name: 'Panavision Vancouver', category: 'Rentals', url: 'https://www.panavision.com/', description: 'The Vancouver branch of the world-renowned camera and lens company...' },
-        { id: 'raw-camera', name: 'Raw Camera', category: 'Rentals', url: 'https://rawcamera.com/', description: 'Boutique digital cinema camera and lens rental house.' },
-        { id: 'red-eye-cinema', name: 'Red Eye Cinema', category: 'Rentals', url: 'http://redeyecinema.com/', description: 'ARRI and RED camera packages for rental.' },
-        { id: 'sparkys', name: 'Sparky\'s Lighting Ltd.', category: 'Rentals', url: 'http://www.sparkyslighting.com/', description: 'Lighting and grip rentals.' },
-        { id: 'sunbelt-rentals', name: 'Sunbelt Rentals', category: 'Rentals', url: 'https://www.sunbeltrentals.com/film/', description: 'Formerly William F. White. Grip, Lighting, Camera, and more.' },
+        // --- RENDER FUNCTIONS ---
+        function renderSections() {
+            const groupedResources = resources.reduce((acc, r) => { (acc[r.category] = acc[r.category] || []).push(r); return acc; }, {});
+            if (sectionContainer) {
+                 sectionContainer.innerHTML = Object.keys(groupedResources).sort().map(cat => `
+                    <div class="resource-section" data-category="${cat}">
+                        <h2>${cat}</h2>
+                        <ul>${groupedResources[cat].sort((a,b) => a.name.localeCompare(b.name)).map(r => `<li><a href="${r.url}" target="_blank">${r.name}</a> - ${r.description}</li>`).join('')}</ul>
+                    </div>`).join('');
+            }
+        }
 
-        // Studios
-        { id: 'vfs-studios', name: 'Vancouver Film Studios', category: 'Studios', url: 'https://vancouverfilmstudios.com/', description: 'One of the largest production facilities in North America...' },
-        { id: 'bridge-studios', name: 'Bridge Studios', category: 'Studios', url: 'https://bridgestudios.com/', description: 'An iconic studio complex in Burnaby...' },
+        // --- EVENT LISTENERS & SETUP ---
+        function setupFilter() {
+            if (filterDropdown) {
+                const categories = ['All', ...new Set(resources.map(r => r.category))].sort();
+                filterDropdown.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+                filterDropdown.addEventListener('change', e => {
+                    const selected = e.target.value;
+                    document.querySelectorAll('.resource-section').forEach(s => s.classList.toggle('hidden', !(selected === 'All' || s.dataset.category === selected)));
+                });
+            }
+        }
 
-        // Production Services
-        { id: 'inspired-image', name: 'Inspired Image Picture Company Inc.', category: 'Production Services', url: 'https://inspiredimage.ca/', description: 'Full-service video production for commercials and corporate content.' },
-        { id: 'omnifilm', name: 'Omnifilm Entertainment', category: 'Production Services', url: 'https://www.omnifilm.com/', description: 'Produces content across drama, comedy, and factual series.' },
-        { id: 'pink-buffalo', name: 'Pink Buffalo Films', category: 'Production Services', url: 'https://pinkbuffalofilms.com/', description: 'Experienced in film/TV series, production services, and branded content.' },
-        { id: 'matrix-productions-services', name: 'Matrix Production Services', category: 'Production Services', url: 'https://www.matrixproductionservices.com/', description: 'Offers diverse services for productions, from location gear to expendables.' },
+         function setupNavigation() {
+            if (mainNav) {
+                mainNav.addEventListener('click', (event) => {
+                    // Only handle clicks on <button> elements
+                    if (event.target.tagName === 'BUTTON') {
+                        const targetViewId = event.target.dataset.view;
 
-        // Casting
-        { id: 'trisko-talent', name: 'Trisko Talent', category: 'Casting', url: 'https://www.triskotalent.com/', description: 'A well-established talent agency...' },
-        { id: 'lucas-talent', name: 'Lucas Talent', category: 'Casting', url: 'https://www.lucastalent.com/', description: 'A premier literary and talent agency...' },
-        { id: 'showbiz-management', name: 'Showbiz Management', category: 'Casting', url: 'https://showbizmanagement.com/', description: 'A leading agency specializing in background performers...' },
+                        // Update button active state
+                        mainNav.querySelectorAll('.nav-btn[data-view]').forEach(btn => btn.classList.remove('active'));
+                        event.target.classList.add('active');
 
-        // Props & Set Dec
-        { id: 'super-props', name: 'Super Props', category: 'Props & Set Dec', url: 'http://superprops.ca/', description: 'A large prop house specializing in hospital/medical props...' },
-        { id: 'antique-alley', name: 'Antique Alley', category: 'Props & Set Dec', url: 'https://antiquealleymovieprops.com/', description: 'A prop house focused on antiques and vintage items...' },
-
-        // Expendables
-        { id: 'hollynorth', name: 'HollyNorth Supplies', category: 'Expendables', url: 'https://hollynorth.com/', description: 'A comprehensive one-stop-shop for all production supplies...' },
-        { id: 'matrix-productions', name: 'Matrix Production Services', category: 'Expendables', url: 'https://www.matrixproductionservices.com/', description: 'Provides a wide range of expendables and location equipment...' },
+                        // Update page view active state
+                        pageViews.forEach(view => {
+                            view.classList.toggle('active', view.id === targetViewId);
+                        });
+                    }
+                });
+            }
+        }
         
-        // Industry Orgs
-        { id: 'creative-bc', name: 'Creative BC', category: 'Industry Orgs', url: 'https://www.creativebc.com/', description: 'An independent non-profit that supports and promotes BC\'s creative industries...' }
-    ];
+        // --- INITIALIZATION ---
+        function init() {
+            renderSections();
+            setupFilter();
+            setupNavigation();
+        }
 
-    // --- DOM ELEMENTS ---
-    const sectionContainer = document.getElementById('section-container');
-    const filterDropdown = document.getElementById('filter-dropdown');
-    
-    // --- RENDER FUNCTIONS ---
-    function renderSections() {
-        const groupedResources = resources.reduce((acc, r) => { (acc[r.category] = acc[r.category] || []).push(r); return acc; }, {});
-        sectionContainer.innerHTML = Object.keys(groupedResources).map(cat => `
-            <div class="resource-section" data-category="${cat}">
-                <h2>${cat}</h2>
-                <ul>${groupedResources[cat].map(r => `<li><a href="${r.url}" target="_blank">${r.name}</a> - ${r.description}</li>`).join('')}</ul>
-            </div>`).join('');
-    }
-
-    // --- EVENT LISTENERS & SETUP ---
-    function setupFilter() {
-        const categories = ['All', ...new Set(resources.map(r => r.category))];
-        filterDropdown.innerHTML = categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
-        filterDropdown.addEventListener('change', e => {
-            const selected = e.target.value;
-            document.querySelectorAll('.resource-section').forEach(s => s.classList.toggle('hidden', !(selected === 'All' || s.dataset.category === selected)));
-        });
-    }
-    
-    // --- INITIALIZATION ---
-    function init() {
-        renderSections();
-        setupFilter();
-    }
-
-    init();
+        init();
+    });
 </script>
 </body>
 </html>
